@@ -6,21 +6,19 @@
 
 **PERÍODO ACADÉMICO:** 2023_B
 
-**ASIGNATURA:** Construcción y evolución de software		GR5
+**ASIGNATURA:** Construcción y evolución de software		
+
+**GR5**
 
 **FECHA DE ENTREGA:** 04/02/2024
 
 **INTEGRANTES:** Ana Campoverde, Joel Guingla, Sebastián Sánchez
 
+## Cálculadora del área de un triángulo isósceles, escaleno y equilátero.
+Se desarrolló una aplicación en Java que permite calcular el área de 3 tipos de triángulos a partir 3 valores conocidos (longitud de los lados).
 ## Diagrama de flujo
 ![flow-chart](/images/imageFlowChart.png)
 
-## Comandos de Git usados
-![Comando1](/images/GitCommands1.png)
-![Comando2](/images/GitCommands2.png)
-![Comando3](/images/GitCommands3.png)
-![Comando4](/images/GitCommands4.png)
-![Comando5](/images/GitCommands5.png)
 
 
 
