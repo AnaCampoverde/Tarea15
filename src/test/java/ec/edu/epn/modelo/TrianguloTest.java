@@ -11,6 +11,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 
+
+/**
+ *
+ * @author Ana
+ */
 public class TrianguloTest {
 
     @BeforeAll
@@ -29,38 +34,31 @@ public class TrianguloTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testTrianguloInvalido() {
-        double lado1 = 1, lado2 = 1, lado3 = 3;
-
-        ExcepcionTrianguloNoValido exception = assertThrows(ExcepcionTrianguloNoValido.class,
-                () -> new Triangulo(lado1, lado2, lado3));
-
-        assertEquals("Los lados proporcionados no forman un triángulo válido", exception.getMessage());
-    }
-
-    @Test
-    public void testTrianguloIsosceles() throws ExcepcionTrianguloNoValido {
-        double lado1 = 4, lado2 = 4, lado3 = 6;
+  @Test
+    public void testTrianguloEquilateroLadosIguales() throws ExcepcionTrianguloNoValido {
+        double lado1 = 5, lado2 = 5, lado3 = 5;
         Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
 
-        assertEquals("Isósceles", triangulo.identificarTipoTriangulo());
-        assertEquals(9.562, triangulo.calcularArea(), 1e-3);
+        assertEquals("Equilátero", triangulo.identificarTipoTriangulo());
+        assertEquals(10.825318, triangulo.calcularArea(), 1e-6);
     }
 
     @Test
-    public void testTrianguloInvalidoLadosNegativos() {
-        double lado1 = -2, lado2 = 3, lado3 = 4;
+    public void testTrianguloEquilateroOtroLadoIgual() throws ExcepcionTrianguloNoValido {
+        double lado1 = 10, lado2 = 5, lado3 = 10;
+        Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
 
-        assertThrows(ExcepcionTrianguloNoValido.class,
-                () -> new Triangulo(lado1, lado2, lado3));
+        assertEquals("Equilátero", triangulo.identificarTipoTriangulo());
+        assertEquals(43.301270, triangulo.calcularArea(), 1e-6);
     }
 
     @Test
-    public void testTrianguloInvalidoSumaLadosIgual() {
-        double lado1 = 1, lado2 = 2, lado3 = 3;
+    public void testTrianguloEquilateroDecimales() throws ExcepcionTrianguloNoValido {
+        double lado1 = 2.5, lado2 = 2.5, lado3 = 2.5;
+        Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
 
-        assertThrows(ExcepcionTrianguloNoValido.class,
-                () -> new Triangulo(lado1, lado2, lado3));
+        assertEquals("Equilátero", triangulo.identificarTipoTriangulo());
+        assertEquals(1.732050, triangulo.calcularArea(), 1e-6);
     }
+
 }

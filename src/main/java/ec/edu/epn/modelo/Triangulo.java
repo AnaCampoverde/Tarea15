@@ -1,6 +1,5 @@
 
 package ec.edu.epn.modelo;
-
 import ec.edu.epn.excepciones.ExcepcionTrianguloNoValido;
 
 class Triangulo {
@@ -17,7 +16,7 @@ class Triangulo {
     }
 
     public String identificarTipoTriangulo() {
-        if (lado1 == lado2 || lado2 == lado3 || lado1 == lado3) {
+        if (lado1 == lado2 && lado2 == lado3) {
             return "Equilátero";
         } else if (lado1 == lado2 || lado2 == lado3 || lado1 == lado3) {
             return "Isósceles";
