@@ -63,4 +63,40 @@ public class TrianguloTest {
         assertThrows(ExcepcionTrianguloNoValido.class,
                 () -> new Triangulo(lado1, lado2, lado3));
     }
+
+    @Test
+    public void testTrianguloEquilateroLadosIguales() throws ExcepcionTrianguloNoValido {
+        double lado1 = 5, lado2 = 5, lado3 = 5;
+        Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
+
+        assertEquals("Equilátero", triangulo.identificarTipoTriangulo());
+        assertEquals(10.825318, triangulo.calcularArea(), 1e-6);
+    }
+
+    @Test
+    public void testTrianguloEquilateroOtroLadoIgual() throws ExcepcionTrianguloNoValido {
+        double lado1 = 10, lado2 = 5, lado3 = 10;
+        Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
+
+        assertEquals("Equilátero", triangulo.identificarTipoTriangulo());
+        assertEquals(43.301270, triangulo.calcularArea(), 1e-6);
+    }
+
+    @Test
+    public void testTrianguloEquilateroDecimales() throws ExcepcionTrianguloNoValido {
+        double lado1 = 2.5, lado2 = 2.5, lado3 = 2.5;
+        Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
+
+        assertEquals("Equilátero", triangulo.identificarTipoTriangulo());
+        assertEquals(1.732050, triangulo.calcularArea(), 1e-6);
+    }
+
+    @Test
+    public void testTrianguloEscaleno() throws ExcepcionTrianguloNoValido {
+        double lado1 = 3, lado2 = 4, lado3 = 5;
+        Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
+
+        assertEquals("Escaleno", triangulo.identificarTipoTriangulo());
+        assertEquals(6.0, triangulo.calcularArea(), 1e-6);
+    }
 }
