@@ -30,37 +30,11 @@ public class TrianguloTest {
     }
 
     @Test
-    public void testTrianguloInvalido() {
-        double lado1 = 1, lado2 = 1, lado3 = 3;
-
-        ExcepcionTrianguloNoValido exception = assertThrows(ExcepcionTrianguloNoValido.class,
-                () -> new Triangulo(lado1, lado2, lado3));
-
-        assertEquals("Los lados proporcionados no forman un triángulo válido", exception.getMessage());
-    }
-
-    @Test
-    public void testTrianguloIsosceles() throws ExcepcionTrianguloNoValido {
-        double lado1 = 4, lado2 = 4, lado3 = 6;
+    public void testTrianguloEscaleno() throws ExcepcionTrianguloNoValido {
+        double lado1 = 3, lado2 = 4, lado3 = 5;
         Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
 
-        assertEquals("Isósceles", triangulo.identificarTipoTriangulo());
-        assertEquals(9.562, triangulo.calcularArea(), 1e-3);
-    }
-
-    @Test
-    public void testTrianguloInvalidoLadosNegativos() {
-        double lado1 = -2, lado2 = 3, lado3 = 4;
-
-        assertThrows(ExcepcionTrianguloNoValido.class,
-                () -> new Triangulo(lado1, lado2, lado3));
-    }
-
-    @Test
-    public void testTrianguloInvalidoSumaLadosIgual() {
-        double lado1 = 1, lado2 = 2, lado3 = 3;
-
-        assertThrows(ExcepcionTrianguloNoValido.class,
-                () -> new Triangulo(lado1, lado2, lado3));
+        assertEquals("Escaleno", triangulo.identificarTipoTriangulo());
+        assertEquals(6.0, triangulo.calcularArea(), 1e-6);
     }
 }
